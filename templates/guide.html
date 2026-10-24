@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <h2>User Guide & FAQ</h2>
+    <p style="color:var(--text-grey)">Learn how to use the system and find answers to common questions.</p>
+</div>
+
+<div class="guide-grid">
+    <div class="card">
+        <h3 style="margin-bottom: 20px;">
+            <i class="fas fa-book-open" style="color:var(--primary-blue); margin-right:10px"></i> How to Use
+        </h3>
+        
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div>
+                <strong>Prepare Data</strong><br>
+                <span style="color:#666; font-size:0.9rem;">Ensure you have a clear MRI (T1-weighted) or Ultrasound scan in JPG or PNG format.</span>
+            </div>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div>
+                <strong>Upload Image</strong><br>
+                <span style="color:#666; font-size:0.9rem;">Navigate to "Upload & Predict". Standardized images work best.</span>
+            </div>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div>
+                <strong>Run Analysis</strong><br>
+                <span style="color:#666; font-size:0.9rem;">Click "Predict" and wait for the AI to process the image.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-bottom: 20px;">
+            <i class="fas fa-question-circle" style="color:var(--primary-blue); margin-right:10px"></i> Frequently Asked Questions
+        </h3>
+        <div class="faq-item" style="border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            Is my data secure? <i class="fas fa-chevron-down" style="color:#ccc"></i>
+        </div>
+        <div class="faq-item" style="border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            What image formats supported? <i class="fas fa-chevron-down" style="color:#ccc"></i>
+        </div>
+        <div class="faq-item" style="border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            Can this replace a doctor? <i class="fas fa-chevron-down" style="color:#ccc"></i>
+        </div>
+        <div class="faq-item" style="border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+            What does "confidence score" mean? <i class="fas fa-chevron-down" style="color:#ccc"></i>
+        </div>
+    </div>
+</div>
+{% endblock %}

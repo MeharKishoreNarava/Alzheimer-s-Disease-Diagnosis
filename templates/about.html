@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-header">
+    <h1>About <span style="color: var(--brand-purple);">NeuroScan AI</span></h1>
+    <p style="color: #666; max-width: 600px; margin: 0 auto;">Combining advanced artificial intelligence with clinical expertise to provide accurate, fast, and accessible diagnostic support.</p>
+</div>
+
+<div class="about-grid">
+    <div class="feature-card">
+        <div class="bg-number">01</div>
+        <div class="feature-content">
+            <div class="feature-icon-circle" style="background: #e3f2fd; color: #2196f3;">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h3>Deep Learning Architecture</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">Custom CNN models specifically designed for analyzing 3D MRI brain scans.</p>
+        </div>
+    </div>
+    
+    <div class="feature-card">
+        <div class="bg-number">02</div>
+        <div class="feature-content">
+            <div class="feature-icon-circle" style="background: #e8f5e9; color: #4caf50;">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>High Accuracy Detection</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">Achieving detection accuracy exceeding 98% through rigorous training on diverse datasets.</p>
+        </div>
+    </div>
+    
+    <div class="feature-card">
+        <div class="bg-number">03</div>
+        <div class="feature-content">
+            <div class="feature-icon-circle" style="background: #f3e5f5; color: #9c27b0;">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Privacy & Security</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">End-to-end encryption and HIPAA-compliant data handling.</p>
+        </div>
+    </div>
+</div>
+
+<div class="tech-stack-section" style="text-align: center; margin-top: 50px;">
+    <h3 style="margin-bottom: 20px;">Technology Stack</h3>
+    <div class="tech-pills">
+        <div class="pill"><i class="fas fa-brain" style="color: #e91e63;"></i> TensorFlow</div>
+        <div class="pill"><i class="fas fa-fire" style="color: #ff5722;"></i> PyTorch</div>
+        <div class="pill"><i class="fas fa-image" style="color: #4caf50;"></i> OpenCV</div>
+        <div class="pill"><i class="fab fa-python" style="color: #306998;"></i> Python</div>
+        <div class="pill"><i class="fab fa-react" style="color: #61DBFB;"></i> React</div>
+        <div class="pill"><i class="fas fa-flask" style="color: #333;"></i> Flask</div>
+    </div>
+</div>
+{% endblock %}

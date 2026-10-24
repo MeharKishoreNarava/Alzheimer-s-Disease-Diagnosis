@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <h2>Contact & Feedback</h2>
+    <p style="color:var(--text-grey)">We value your input. Reach out for support or suggestions.</p>
+</div>
+
+<div class="contact-layout">
+    <div class="card">
+        <h3 style="margin-bottom: 10px;">Send us a Message</h3>
+        <p style="color:#666; font-size:0.9rem; margin-bottom: 20px;">Fill out the form below and we'll get back to you shortly.</p>
+        
+        <div class="form-row">
+            <div class="form-col">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">First name</label>
+                <input type="text" class="form-input" placeholder="John">
+            </div>
+            <div class="form-col">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Last name</label>
+                <input type="text" class="form-input" placeholder="Doe">
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Email</label>
+            <input type="email" class="form-input" placeholder="john@example.com">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Subject</label>
+            <input type="text" class="form-input" placeholder="Feedback about...">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Message</label>
+            <textarea class="form-input" rows="4" placeholder="Tell us about your experience..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background: #fafafa;"></textarea>
+        </div>
+        
+        <button class="btn btn-primary" style="width: 100%;">Send Message</button>
+    </div>
+
+    <div>
+        <div class="contact-sidebar-card">
+            <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+            <div>
+                <strong>Email Support</strong><br>
+                <span style="color:#666; font-size:0.85rem">For technical issues and general inquiries.<br>
+                <a href="#" style="color:var(--primary-blue)">support@neuroscan.ai</a></span>
+            </div>
+        </div>
+        
+        <div class="contact-sidebar-card">
+            <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+            <div>
+                <strong>Phone</strong><br>
+                <span style="color:#666; font-size:0.85rem">Mon-Fri from 8am to 5pm EST.<br>
+                <a href="#" style="color:var(--primary-blue)">+1 (555) 000-0000</a></span>
+            </div>
+        </div>
+        
+        <div style="background: #e3f2fd; border: 1px solid #bbdefb; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h4 style="color:#0d47a1; margin-bottom: 10px;">Community Feedback</h4>
+            <p style="font-style: italic; color: #1565c0; font-size: 0.9rem;">"This tool has significantly sped up our initial screening process. The visualization of the results is particularly helpful for explaining concepts to patients."</p>
+            <p style="margin-top: 10px; font-weight: bold; color:#0d47a1; font-size: 0.85rem;">- Dr. Sarah Chen, Neurologist</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

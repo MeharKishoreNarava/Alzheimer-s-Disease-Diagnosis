@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page-body">
+
+    <div class="auth-overlay"></div> 
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="position: absolute; top: 20px; z-index: 1000; background: #ff4444; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="auth-container-dual">
+        
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>NeuroScan AI</h2>
+                <p>NeuroScan AI: Advancing Brain Health with AI</p>
+            </div>
+
+            <div class="auth-form">
+                <h3>Sign In</h3>
+                
+                <form action="{{ url_for('login_submit') }}" method="POST">
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" class="auth-input form-input" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" class="auth-input form-input" required>
+                        <i class="fas fa-eye-slash toggle-password"></i>
+                    </div>
+
+                    <div class="form-options">
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block auth-btn">Sign In</button>
+                </form>
+
+                <div class="divider"><span>OR</span></div>
+
+                <div class="social-login">
+                    <button class="social-btn google"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Google</button>
+                    <button class="social-btn linkedin"><img src="https://img.icons8.com/color/16/000000/linkedin.png"> LinkedIn</button>
+                </div>
+
+                <p class="auth-footer">Don't have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>NeuroScan AI</h2>
+                <p>Join the NeuroScan Community</p>
+            </div>
+
+            <div class="auth-form">
+                <h3>Sign Up</h3>
+                
+                <form action="{{ url_for('signup_submit') }}" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="fullname" placeholder="Full Name" class="auth-input form-input" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" class="auth-input form-input" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Create Password" class="auth-input form-input" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" class="auth-input form-input" required>
+                        <i class="fas fa-eye-slash toggle-password"></i>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block auth-btn">Create Account</button>
+
+                    <div class="terms-check">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to your <a href="#">terms</a> and <a href="#">conditions</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function() {
+                // Toggle icon
+                if (this.classList.contains('fa-eye-slash')) {
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                } else {
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                }
+                
+                // Toggle input type
+                let input = this.previousElementSibling;
+                if (input.getAttribute('type') === 'password') {
+                    input.setAttribute('type', 'text');
+                } else {
+                    input.setAttribute('type', 'password');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

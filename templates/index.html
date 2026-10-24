@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-banner">
+    <i class="fas fa-brain bg-graphic"></i>
+    <div style="position: relative; z-index: 2; max-width: 60%;">
+        <h1>Early Detection for Better Care</h1>
+        <p style="margin: 15px 0 25px 0; opacity: 0.9;">Analyze brain scans with 98.5% accuracy using our advanced CNN models.</p>
+        <a href="{{ url_for('upload') }}" class="btn btn-white">Start Analysis</a>
+    </div>
+</div>
+
+<div class="card-grid">
+    <div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><h3>AI-Powered</h3><p style="color:#666; font-size:0.9rem">CNN identification of patterns.</p></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><h3>98.5% Accuracy</h3><p style="color:#666; font-size:0.9rem">Validated on ADNI datasets.</p></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-bolt"></i></div><h3>Instant Results</h3><p style="color:#666; font-size:0.9rem">Detailed reports in seconds.</p></div>
+</div>
+
+<div class="table-container">
+    <div class="table-header"><h3>Recent Patient Scans</h3><button id="viewAllBtn" class="btn btn-white" style="font-size: 0.8rem;" onclick="toggleViewAll()">View All</button></div>
+    <table>
+        <thead><tr><th>Patient ID</th><th>Scan Date</th><th>Prediction</th><th>Confidence</th><th>Status</th></tr></thead>
+        <tbody>
+            <tr><td>#PT-00921</td><td>Feb 03, 2026</td><td>Mild Dementia</td><td>87.5%</td><td><span class="status-badge status-med">Review Needed</span></td></tr>
+            <tr><td>#PT-00920</td><td>Feb 03, 2026</td><td>Healthy</td><td>94.2%</td><td><span class="status-badge status-low">Clear</span></td></tr>
+            <tr class="extra-row"><td>#PT-00918</td><td>Feb 02, 2026</td><td>Moderate</td><td>91.0%</td><td><span class="status-badge status-high">High Risk</span></td></tr>
+            <tr class="extra-row"><td>#PT-00915</td><td>Feb 01, 2026</td><td>Healthy</td><td>95.5%</td><td><span class="status-badge status-low">Clear</span></td></tr>
+            <tr class="extra-row"><td>#PT-00912</td><td>Jan 30, 2026</td><td>Very Mild</td><td>78.3%</td><td><span class="status-badge status-med">Review Needed</span></td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

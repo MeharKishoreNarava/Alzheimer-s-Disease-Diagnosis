@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - NeuroScan AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="auth-container">
+        <div class="auth-box">
+            <div class="auth-left" id="login-form">
+                <h2 class="auth-title">Welcome Back</h2>
+                <p style="color: #666; margin-bottom: 30px;">Please enter your details to sign in.</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group"><i class="fas fa-envelope"></i><input type="email" class="auth-input" placeholder="Enter your email" required value="doctor@neuroscan.ai"></div>
+                    <div class="input-group"><i class="fas fa-lock"></i><input type="password" class="auth-input" placeholder="Password" value="password123"></div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+            </div>
+            
+            <div class="auth-left hidden" id="signup-form">
+                <h2 class="auth-title">Create Account</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group"><i class="fas fa-user"></i><input type="text" class="auth-input" placeholder="Full Name"></div>
+                    <div class="input-group"><i class="fas fa-envelope"></i><input type="email" class="auth-input" placeholder="Email"></div>
+                    <div class="input-group"><i class="fas fa-lock"></i><input type="password" class="auth-input" placeholder="Password"></div>
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </form>
+            </div>
+            <div class="auth-right">
+                <i class="fas fa-brain" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                <h2>NeuroScan AI</h2>
+                <div id="auth-toggle-text">
+                    <p style="margin-top: 20px">Don't have an account?</p>
+                    <button class="ghost-btn" onclick="toggleAuth()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="results-header">
+    <div>
+        <h2>Analysis Report</h2>
+        <span style="color:var(--text-grey); font-size: 0.9rem;">Generated on Feb 04, 2026</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+        <a href="{{ url_for('upload') }}" class="btn btn-white"><i class="fas fa-sync-alt"></i> New Analysis</a>
+        <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-download"></i> Download PDF</button>
+    </div>
+</div>
+
+<div class="results-grid">
+    <div class="card">
+        <div class="result-box-mild" style="padding: 20px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 10px; align-items: center;">
+            <i class="fas fa-exclamation-circle" style="font-size: 1.2rem;"></i>
+            <div><h3 style="margin-bottom: 2px;">Mild Dementia Detected</h3><span>Confidence Score: 87.5%</span></div>
+        </div>
+
+        <div style="margin-bottom: 5px; display:flex; justify-content:space-between"><span>Healthy</span><span>12.5%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 12.5%; background: #2196f3;"></div></div>
+        
+        <div style="margin-bottom: 5px; display:flex; justify-content:space-between; font-weight:bold;"><span style="color: orange;">Mild Impairment</span><span>87.5%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 87.5%; background: orange;"></div></div>
+
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px; font-size: 0.9rem; color: #666; line-height: 1.6;">
+            <strong>Clinical Interpretation:</strong> The model has identified patterns associated with Mild Cognitive Impairment (MCI). Slight enlargement of ventricles detected.
+        </div>
+    </div>
+    <div>
+        <div class="card" style="padding: 10px;">
+            <div style="background: #ddd; height: 200px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #666; overflow: hidden;">
+                <span>Scan Preview</span>
+            </div>
+        </div>
+        <div class="specialist-card">
+            <h3>Need a Specialist?</h3>
+            <p>Find trusted neurologists and memory clinics near you.</p>
+            <button class="btn btn-white">Find Doctors</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

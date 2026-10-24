@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><i class="fas fa-brain"></i> NeuroScan AI</div>
+        <div class="menu-label">Menu</div>
+        
+        <a href="{{ url_for('index') }}" class="nav-item {{ 'active' if request.endpoint == 'index' }}">
+            <i class="fas fa-home"></i> Home / Overview
+        </a>
+        <a href="{{ url_for('upload') }}" class="nav-item {{ 'active' if request.endpoint == 'upload' }}">
+            <i class="fas fa-cloud-upload-alt"></i> Upload & Predict
+        </a>
+        <a href="{{ url_for('result') }}" class="nav-item {{ 'active' if request.endpoint == 'result' }}">
+            <i class="fas fa-chart-line"></i> Prediction Results
+        </a>
+        <a href="{{ url_for('about') }}" class="nav-item {{ 'active' if request.endpoint == 'about' }}">
+            <i class="fas fa-info-circle"></i> About NeuroScan AI
+        </a>
+        <a href="{{ url_for('data') }}" class="nav-item {{ 'active' if request.endpoint == 'data' }}">
+            <i class="fas fa-file-alt"></i> Data & Model Info
+        </a>
+        <a href="{{ url_for('guide') }}" class="nav-item {{ 'active' if request.endpoint == 'guide' }}">
+            <i class="fas fa-question-circle"></i> User Guide & FAQ
+        </a>
+        <a href="{{ url_for('contact') }}" class="nav-item {{ 'active' if request.endpoint == 'contact' }}">
+            <i class="fas fa-comment-alt"></i> Contact & Feedback
+        </a>
+
+        <div class="menu-label" style="margin-top: 20px;">Account</div>
+        <a href="{{ url_for('login') }}" class="nav-item {{ 'active' if request.endpoint == 'login' }}">
+            <i class="fas fa-user-circle"></i> Login / Sign Up
+        </a>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div style="font-weight: 500; font-size: 1.1rem; color: white;">Alzheimer's Early Detection System</div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <div style="text-align: right; color: white;">
+                    <div style="font-weight: bold; font-size: 0.9rem;">Dr. John Smith</div>
+                    <div style="font-size: 0.8rem; opacity: 0.8;">Neurologist</div>
+                </div>
+                <div style="width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fas fa-user"></i>
+                </div>
+                <a href="{{ url_for('login') }}" style="color: white; margin-left: 10px; font-size: 0.9rem;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="scroll-container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

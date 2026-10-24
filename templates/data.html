@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="margin-bottom: 20px;">Data & Model Information</h2>
+<p style="color:#666; margin-bottom: 20px;">Technical specifications of our Alzheimer's Detection System.</p>
+
+<div class="tabs">
+    <button class="tab active" onclick="switchTab('model')">Model Architecture</button>
+    <button class="tab" onclick="switchTab('dataset')">Dataset Info</button>
+    <button class="tab" onclick="switchTab('performance')">Performance</button>
+</div>
+
+<div id="tab-model" class="model-card tab-content active">
+    <h3>Convolutional Neural Network (CNN)</h3>
+    <p style="color:#666; font-size:0.9rem; margin-top: 5px;">Deep learning architecture for medical image analysis</p>
+    <p style="color:#666; font-size:0.95rem; margin-top: 15px;">Our system utilizes a modified ResNet-50 architecture, pre-trained on ImageNet and fine-tuned specifically for brain MRI structural analysis. The network features:</p>
+    <ul style="color:#666; font-size:0.95rem; margin-top: 10px; margin-bottom: 30px; padding-left: 20px; line-height: 1.6;">
+        <li>50 layers of deep convolutional operations</li>
+        <li>Global Average Pooling to reduce overfitting</li>
+        <li>Softmax classification layer for 4 classes (Non-Demented, Very Mild, Mild, Moderate)</li>
+        <li>Attention mechanisms to highlight ROI (Regions of Interest) like the Hippocampus</li>
+    </ul>
+
+    <div style="text-align: center; background: #f8f9fa; padding: 25px; border-radius: 12px; border: 1px solid #eee; margin-top: 30px;">
+        <h4 style="margin-bottom: 20px; color: #333;">Architecture Diagram Flow</h4>
+        
+        <img src="{{ url_for('static', filename='img/architecture.jpg.jpeg') }}" 
+             alt="CNN Architecture Diagram" 
+             class="img-fluid" 
+             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white; padding: 10px;">
+             
+        <p style="color:#999; font-size: 0.85rem; margin-top: 15px;">Figure 1: Visual representation of the CNN process.</p>
+    </div>
+</div>
+
+<div id="tab-dataset" class="model-card tab-content">
+    <h3>Training Data</h3>
+    <p style="color:#666; font-size:0.95rem; margin-top: 15px; margin-bottom: 25px;">Sourced from publicly available research repositories (OASIS and ADNI). The dataset is balanced across four classes to prevent model bias.</p>
+    <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">6,400+</div><div class="stat-label">MRI Scans</div></div>
+        <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Classes</div></div>
+    </div>
+</div>
+
+<div id="tab-performance" class="model-card tab-content">
+    <h3 style="margin-bottom: 25px;">Validation Metrics</h3>
+    
+    <div class="perf-metric">
+        <div class="perf-label"><span>Accuracy</span><span>98.5%</span></div>
+        <div class="perf-track"><div class="perf-bar" style="width: 98.5%; background: #00c853;"></div></div>
+    </div>
+    <div class="perf-metric">
+        <div class="perf-label"><span>Sensitivity (Recall)</span><span>96.2%</span></div>
+        <div class="perf-track"><div class="perf-bar" style="width: 96.2%; background: #2979ff;"></div></div>
+    </div>
+    <div class="perf-metric">
+        <div class="perf-label"><span>Specificity</span><span>99.1%</span></div>
+        <div class="perf-track"><div class="perf-bar" style="width: 99.1%; background: #aa00ff;"></div></div>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+        <h4 style="margin-bottom: 25px; color: #333;">Detailed Performance Analysis</h4>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                <h5 style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Training Accuracy & Loss</h5>
+                <img src="{{ url_for('static', filename='img/training_metrics.png.png') }}" class="img-fluid" style="max-width: 100%; border-radius: 4px;">
+            </div>
+
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                <h5 style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Class Distribution</h5>
+                <img src="{{ url_for('static', filename='img/class_dist.png.png') }}" class="img-fluid" style="max-width: 100%; border-radius: 4px;">
+            </div>
+
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                <h5 style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Confusion Matrix</h5>
+                <img src="{{ url_for('static', filename='img/conf_matrix.png.png') }}" class="img-fluid" style="max-width: 100%; border-radius: 4px;">
+            </div>
+
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center;">
+                <h5 style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Normalized Matrix</h5>
+                <img src="{{ url_for('static', filename='img/norm_conf_matrix.png.png') }}" class="img-fluid" style="max-width: 100%; border-radius: 4px;">
+            </div>
+        </div>
+    </div>
+
+    <p style="font-size: 0.85rem; color: #999; margin-top: 25px;">Metrics verified using 5-fold cross-validation on an independent test set.</p>
+</div>
+{% endblock %}
